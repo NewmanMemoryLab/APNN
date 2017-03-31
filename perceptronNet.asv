@@ -1,5 +1,5 @@
 %A Perceptron to train a neural network... .
-%% Situate Data
+%% 
 %x = [0 0 1 1; 0 1 0 1];
 %t = [0 1 1 1];
 
@@ -10,8 +10,8 @@
 % t = rasSide;
 
 
-x = con2seq(allCa3(:,1)');
-t = con2seq(allCa1(:,1)');
+ca3_c = con2seq(allCa3(:,1)');
+ca1_c = con2seq(allCa1(:,1)');
 
 
 %% Create the neural net
@@ -31,11 +31,9 @@ end
 %% Test 
 %[rasMidTst, tVec] = distroSpikeGen(2, 1, 0, 50);
 
-start_t = 1;
-end_t = 160000;
 %y = net(x);
-rasMidTst = ca3_c(start_t:end_t)
+rasMidTst = 
 y = net(rasMidTst);
 
-%HeatMap(y)
+HeatMap(y)
 
