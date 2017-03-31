@@ -1,7 +1,6 @@
 % Beginning script to run RNN (woo!)
 
 % Decimate and normalize ts
-
 ca1_ts = decimate(ca1_ts_m, 10);
 ca3_ts = decimate(ca3_ts_m, 10);
 
@@ -16,10 +15,8 @@ ca1_c = con2seq(ca1_n');
 %mb_size = 10000;
 train_start = 1;
 train_end = 100000;
-
 lrn_net = layrecnet(1, 50);
 lrn_net.trainFcn = 'trainbr';
-
 lrn_net.trainParam.epochs = 50;
 %lrn_net.performParam.regularization = 0.1;
 
@@ -28,19 +25,16 @@ lrn_net = train(lrn_net,ca3_c(train_start:train_end), ...
 
 start_t = 100000;
 end_t = 160000;
-
 % Test output of recurrent neural net 
 test_out = lrn_net(ca3_c(start_t:end_t));
 test_out = cell2mat(test_out);
 
 % See how ouput compares to real data
 % Get correlation
-
 emp_ts = ca1_n(start_t:end_t);
 [res, p_vals] = corrcoef([test_out' ca1_n(start_t:end_t)]);
 
 % Also test for peaks in data and find overlap
-
 emp_90 = prctile(emp_ts, 90);
 [~, emp_loc, emp_w] =  findpeaks(emp_ts, 'MinPeakHeight', emp_90);
 
