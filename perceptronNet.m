@@ -34,7 +34,7 @@ end
 start_t = 1;
 end_t = 160000;
 %y = net(x);
-rasMidTst = ca3_c(start_t:end_t)
+rasMidTst = ca3_c(start_t:end_t);
 y = net(rasMidTst);
 
 %HeatMap(y)

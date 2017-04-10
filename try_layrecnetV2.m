@@ -1,8 +1,8 @@
 % Beginning script to run RNN (woo!)
 
 % Decimate and normalize ts
-% allCa1 = decimate(ca1_ts_m, 10);
-% allCa3 = decimate(ca3_ts_m, 10);
+ allCa1 = decimate(ca1_ts_m, 10);
+ allCa3 = decimate(ca3_ts_m, 10);
 
 % ca1_n = allCa1/range(allCa1);
 % ca3_n = allCa3/range(allCa3);
